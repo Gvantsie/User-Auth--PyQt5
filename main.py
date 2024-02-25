@@ -23,7 +23,7 @@ class Login(QDialog):
         else:
             self.message.setText("Login or password are incorrect")
 
-    @staticmethod
+    #@staticmethod
     def show_successful_login_ui(self):
         successful_login_ui = SuccessfulLoginUI()
         widget.addWidget(successful_login_ui)
