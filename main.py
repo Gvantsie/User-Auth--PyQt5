@@ -6,12 +6,12 @@ from PyQt5.uic import loadUi
 
 class Login(QDialog):
     def __init__(self):
-        super(Login,self).__init__()
-        loadUi("login.ui",self)
-        self.login_button.clicked.connect(self.loginfunction)
-        self.pushButton_2.clicked.connect(self.gotocreate)
+        super(Login, self).__init__()
+        loadUi("login.ui", self)
+        self.login_button.clicked.connect(self.login_function)
+        self.pushButton_2.clicked.connect(self.goto_create)
 
-    def loginfunction(self):
+    def login_function(self):
         username = self.user_name.text()
         password = self.password.text()
 
@@ -23,25 +23,26 @@ class Login(QDialog):
         else:
             self.message.setText("Login or password are incorrect")
 
+    @staticmethod
     def show_successful_login_ui(self):
         successful_login_ui = SuccessfulLoginUI()
         widget.addWidget(successful_login_ui)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
-    def gotocreate(self):
-        createacc=CreateAcc()
-        widget.addWidget(createacc)
+    def goto_create(self):
+        create_acc = CreateAcc()
+        widget.addWidget(create_acc)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
 class CreateAcc(QDialog):
     def __init__(self):
         super(CreateAcc, self).__init__()
         loadUi("newacc.ui", self)
-        self.signup.clicked.connect(self.createaccfunction)
+        self.signup.clicked.connect(self.create_acc_function)
 
-    def createaccfunction(self):
-        if self.password.text()==self.confirmpass.text():
+    def create_acc_function(self):
+        if self.password.text() == self.confirmpass.text():
             self.message1.setText("Successfully created account")
         else:
             self.message1.setText("Passwords do not match")
@@ -52,10 +53,10 @@ class SuccessfulLoginUI(QDialog):
         super(SuccessfulLoginUI, self).__init__()
         loadUi("successfullogin.ui", self)
 
-app=QApplication(sys.argv)
-mainwindow=Login()
-widget=QtWidgets.QStackedWidget()
-widget.addWidget(mainwindow)
+app = QApplication(sys.argv)
+main_window = Login()
+widget = QtWidgets.QStackedWidget()
+widget.addWidget(main_window)
 widget.setFixedWidth(570)
 widget.setFixedHeight(700)
 widget.show()
