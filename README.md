@@ -3,7 +3,7 @@ This is a basic login application built using PyQt5. Users can log in with a pre
 
 How to Run
 Clone the Repository:
-git clone https://github.com/your_username/your_project.git
+git clone https://github.com/your_username/User-Auth--PyQt5.git
 
 Install Dependencies:
 pip install PyQt5
